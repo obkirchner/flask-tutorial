@@ -5,4 +5,5 @@ from app.models import User, Post
 
 @app.shell_context_processor
 def make_shell_context():
+    print("Shell context loaded ✅")
     return {'sa': sa, 'so': so, 'db': db, 'User': User, 'Post':Post}

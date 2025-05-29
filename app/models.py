@@ -19,15 +19,7 @@ class User(UserMixin, db.Model):
         self.password_hash = generate_password_hash(password)
 
     def check_password(self, password):
-        #ChatGPT suggestion for handling Optional type
-        if self.password_hash is None:
-            return False
-        return check_password_hash(self.password_hash, password)
-    
-    #ChatGPT suggesstion to handle user=(...,...) in view function
-    def __init__(self, username: str, email: str):
-        self.username = username
-        self.email = email
+        return check_password_hash(self.password_hash, password) 
 
     def __repr__(self):
         return '<User {}>'.format(self.username)
